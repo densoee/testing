@@ -11,8 +11,8 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                     withDockerRegistry([url: "https://hub.docker.com/", credentialsId: "DOCREG_CRED"]) {
-                        sh "docker build -t  -f /var/jenkins_home/workspace/testing/Dockerfile ."
-                        sh "docker push "
+                        sh "docker build -t deden7/testing:1.0 -f /var/jenkins_home/workspace/testing/Dockerfile ."
+                        sh "docker push deden7/testing:1.0"
                 }
             }
         }
