@@ -2,7 +2,7 @@
 // Koneksi ke database
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "Passw0rd.1";
 $dbname = "testing";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
