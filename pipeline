@@ -1,0 +1,21 @@
+pipeline {
+    agent { label 'main-agent' }
+    
+    stages {
+        stage("Cloning Repository") {
+            steps {
+                git branch: 'main', credentialsId: 'GITHUB_CRED', url: 'https://github.com/densoee/testing'
+            }
+          }
+    
+        stage("Build Docker Image") {
+            steps {
+                    withDockerRegistry([url: "https://hub.docker.com/", credentialsId: "DOCREG_CRED"]) {
+                        sh "docker build -t  -f /var/jenkins_home/workspace/testing/Dockerfile ."
+                        sh "docker push "
+                }
+            }
+        }
+
+        }
+    }
