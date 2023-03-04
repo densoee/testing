@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  php-apache:
+    image: my-php-apache-image
+    ports:
+      - "3000:80"
+    environment:
+      MYSQL_HOST: db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: my_database
+    volumes:
+      - ./data:/var/lib/mysql
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: my_database
+    volumes:
+      - ./data:/var/lib/mysql
