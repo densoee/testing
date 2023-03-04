@@ -17,6 +17,6 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: Passw0rd.1
-      MYSQL_DATABASE: userdb
+      MYSQL_DATABASE: testing
     volumes:
       - ./data:/var/lib/mysql
